@@ -12,10 +12,24 @@ class Program
             if (input.ToLower() == "exit")
                 break;
 
-            double num1 = Convert.ToDouble(input);
+            double num1;
+            if (!double.TryParse(input, out num1))
+            {
+                Console.WriteLine("Error: Please Enter a Valid Number. ");
+                Console.WriteLine();
+                continue;
+            }
 
             Console.Write("Enter second number: ");
-            double num2 = Convert.ToDouble(Console.ReadLine());
+            string secondInput = Console.ReadLine();
+
+            double num2;
+            if (!double.TryParse(secondInput, out num2))
+            {
+                Console.WriteLine("Error: Please Enter a Valid Number. ");
+                Console.WriteLine();
+                continue;
+            }
 
             Console.Write("Enter operation (+, -, *, /): ");
             string operation = Console.ReadLine();
